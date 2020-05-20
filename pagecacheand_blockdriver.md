@@ -566,7 +566,7 @@ It reads more adjacent sectors than specified by upper layer.
 Next data request is done without disk accessing.
 page_cache_sync_readahead() calls read_pages() function that finally calls the operation of address_space: mapping->a_ops->readpages = blkdev_readpages.
 
-blkdef_readpages calls mpage_readpages which are one of essential functions in block layer.
+blkdev_readpages calls mpage_readpages which are one of essential functions in block layer.
 mpage_readpages sends bio to the request-queue of driver with submit_bio() and adds page into lru.
 bio is created by do_mpage_readpage() and submit_bio() is called by mpage_bio_submit().
 
